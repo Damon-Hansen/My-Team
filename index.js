@@ -32,6 +32,7 @@ function promptManager() {
     .then(function(answers) {
         const newManager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber)
         teamMember.push(newManager);
+        menu();
     })
 }
 
