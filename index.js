@@ -47,9 +47,65 @@ function menu() {
         switch(answers.next) {
             case "Intern":
                 //Intern Prompt//
+                inquirer.prompt(
+                    [
+                        {
+                            type: 'input',
+                            message: "What is the intern's name?",
+                            name: 'name'
+                        },
+                        {
+                            type: 'input',
+                            message: "What is the intern's id?",
+                            name: 'id'
+                        },
+                        {
+                            type: 'input',
+                            message: "What is the intern's email?",
+                            name: 'email'
+                        },
+                        {
+                            type: 'input',
+                            message: 'Where does the intern go to school?',
+                            name: 'school'
+                        }
+                    ]
+                )
+                .then(function(answers) {
+                    const newIntern = new Intern(answers.name, answers.id, answers.email, answers.school)
+                    teamMember.push(newIntern);
+                    menu();
+                })
                 break;
             case "Engineer":
                 //engineerPrompt()//
+                inquirer.prompt([
+                    {
+                        type: 'input',
+                        message: "What is the engineer's name?",
+                        name: 'name'
+                    },
+                    {
+                        type: 'id',
+                        message: "What is the engineer's id?",
+                        name: 'id'
+                    },
+                    {
+                        type: 'input',
+                        message: "What is the engineer's email?",
+                        name: 'email'
+                    },
+                    {
+                        type: 'input',
+                        message: "What is the engineer's github profile username?",
+                        name: 'github'
+                    }
+                ])
+                .then(function(answers) {
+                    const newEngineer = new Engineer(answers.name, answers.id, answers.email, answers.github)
+                    teamMember.push(newEngineer);
+                    menu();
+                })
                 break;
             default: 
             //generateHTML()//
