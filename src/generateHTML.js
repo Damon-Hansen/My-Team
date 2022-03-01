@@ -1,5 +1,8 @@
-function generateHTML (data) {
+function generateHTML (teamMembers) {
+    console.log(teamMembers);
     return `
     
     `
 }
+
+module.exports = generateHTML;

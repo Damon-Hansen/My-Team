@@ -1,8 +1,9 @@
 const Manager = require('./lib/Manager');
 const Intern = require('./lib/Intern');
 const Engineer = require('./lib/Engineer');
+const generateHTML = require('./src/generateHTML');
 const inquirer = require('inquirer');
-const teamMember = [];
+const teamMembers = [];
 
 function promptManager() {
     inquirer.prompt(
@@ -31,7 +32,7 @@ function promptManager() {
     )
     .then(function(answers) {
         const newManager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber)
-        teamMember.push(newManager);
+        teamMembers.push(newManager);
         menu();
     })
 }
@@ -73,7 +74,7 @@ function menu() {
                 )
                 .then(function(answers) {
                     const newIntern = new Intern(answers.name, answers.id, answers.email, answers.school)
-                    teamMember.push(newIntern);
+                    teamMembers.push(newIntern);
                     menu();
                 })
                 break;
@@ -103,19 +104,14 @@ function menu() {
                 ])
                 .then(function(answers) {
                     const newEngineer = new Engineer(answers.name, answers.id, answers.email, answers.github)
-                    teamMember.push(newEngineer);
+                    teamMembers.push(newEngineer);
                     menu();
                 })
                 break;
             default: 
-            //generateHTML()//
+            generateHTML(teamMembers);
         }
     })
 }
-
-
-
-
-
 
 promptManager();
