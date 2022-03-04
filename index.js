@@ -3,6 +3,7 @@ const Intern = require('./lib/Intern');
 const Engineer = require('./lib/Engineer');
 const generateHTML = require('./src/generateHTML');
 const inquirer = require('inquirer');
+const fs = require('fs');
 const teamMembers = [];
 
 function promptManager() {
@@ -109,7 +110,8 @@ function menu() {
                 })
                 break;
             default: 
-            generateHTML(teamMembers);
+            const htmlData = generateHTML(teamMembers);
+            fs.writeFileSync('dist/index.html', htmlData);
         }
     })
 }
