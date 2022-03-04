@@ -56,13 +56,13 @@ function genIntern () {
     </head>
     <body>
             <header class="container-fluid bg-danger text-center p-4 display-3">My Team</header>
-            <div class="row justify-content-between">
+            <div class="row p-1">
                 ${genManager()}
             </div>
-            <div class="row justify-content-between">
+            <div class="row p-1">
                ${genEngineer()} 
             </div>
-            <div class="row justify-content-between">
+            <div class="row p-1">
                 ${genIntern()}
             </div>
     </body>
